@@ -1,15 +1,17 @@
+### Summary
 MiniSprite
 Tiny package made for Wearable & Mobile Apps class
 Made for midterm Fidget Phone.
 Based on Unity component architecture
 
-Reasons to use:
+### Reasons to use
 You are using SurfaceView
 You want to easily move, rotate, and set a local-space parent on the SurfaceView = Transform
 You want to animate a sprite on SurfaceView = MiniSprite, Transform
 You want to share capabilities (e.g. falling sprite, player sprite) using components
 
-Usage:
+### How to Use:
+
 Activity OnCreate
     1. Get SurfaceView in Activity
     2. Create MiniSpriteSurface with SurfaceView and store reference.
@@ -28,9 +30,11 @@ All transforms will update based on components
 Move groups of transforms in onPreUpdate
 It's an extension of a Surface, doesn't interfere with anything else.
 
+### Example
 Ex. 
 
 MiniSpriteSurface miniSpriteSurface;
+MyComponent myComponent;
 
 MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
 ...
@@ -56,10 +60,34 @@ boolean created = false
 @Override
 public void onPreUpdate(MiniSpriteSurface miniSpriteSurface, Canvas canvas) {
     ...
-    wave = new MiniSprite("Wave", getResources(), R.drawable.spritesheet_wave_v4, waveWidth, waveHeight, wavePaint, 1,1)
-    .withPositionXY(waveCenterX, waveCenterY)
-    //.addComponent(waveComponent)
-    .addComponent(new AnimateComponent(0.5f));
+
+    myComponent = new MyComponent(myArgs...);
+        
+    miniSpriteSurface.AllTransforms.instantiateTransform( // Instantiate any transform so components are updated
+                 new MiniSprite.Builder(R.drawable.my_drawable, getResources()) // Create sprite. Sprite can be sliced if in grid
+                         .withName("My Name") // Name for logging
+                         .withDimensions(myWidth, myHeight) //  Width and Height of sprite
+                         .withPaint(myPaint) // Sprite can use a paint
+                         .withPositionXY(myXPosition, myYPosition) // Position either in world or local space depending on parent. 
+                         .withComponent(myComponent) // Components to be updated by MiniSpriteSurface
+                         .withParent(myParentTransform) // Follow transform position and rotation, position now in local space
+                         .withSliceDimensions(2, 2) // Indicates my_drawable is a 2x2 spritesheet. Can set Slice Index to show correct sprite. 
+                         .build(),
+                2 // Sorting layer. Set higher to have MiniSpriteSurface draw above other sprites
+        );
+
+    Transform2D titleLeft = new MiniText.Builder() // Can create text that can use same transform parents and components. No UI anchoring yet. 
+                .withName("Title")
+                .withTextValue("My Titel")
+                .withPaint(titleTextPaint)
+                .withPositionXY(myXPosition, myYPosition)
+                .withParent(myParentTransform)
+                .build();
+
+    miniSpriteSurface.AllTransforms.instantiateTransform(
+                titleRight,
+                4
+        );
 
     created = true;
     ... 
@@ -74,7 +102,8 @@ public void onPreDrawSprites(MiniSpriteSurface miniSpriteSurface, Canvas canvas)
 @Override
 public void onPostDrawSprites(MiniSpriteSurface miniSpriteSurface, Canvas canvas) {
     ...
-    Update 
+    Update any stored components. 
+    myComponent.myValue = newValue;
     ...
 }
 
