@@ -1,19 +1,18 @@
 ### Summary
-MiniSprite
-Tiny package made for Wearable & Mobile Apps class
-Made for midterm Fidget Phone.
-Based on Unity component architecture
+MiniSprite is a tiny Android Studio package made for Wearable & Mobile Apps class. Originally made to simplify the midterm Fidget Phone using a wave of sprites. Based on Unity component architecture. 
 
 ### Reasons to use
-You are using SurfaceView
-You want to easily move, rotate, and set a local-space parent on the SurfaceView = Transform
-You want to animate a sprite on SurfaceView = MiniSprite, Transform
-You want to share capabilities (e.g. falling sprite, player sprite) using components
+- You are using SurfaceView
+- You want to easily move, rotate, and set a local-space parent on the SurfaceView = Transform
+- You want to animate a sprite on SurfaceView = MiniSprite, Transform
+- You want to share capabilities (e.g. falling sprite, player sprite) using components
+
+Note: Recommended to use JBox2D for physics manipulation or more complex transform manipulation. 
 
 ### How to Use:
 
 Activity OnCreate
-1. Get SurfaceView in Activity
+1. Get reference to SurfaceView in Activity (typically findById)
 2. Create MiniSpriteSurface with SurfaceView and store reference.
 3. If you need to update transforms in MiniSpriteSurface update loop
 - Implement IMiniSpriteSurfaceListener on your Activity
@@ -32,16 +31,15 @@ It's an extension of a Surface, doesn't interfere with anything else.
 
 ### Example 1
 ```MiniSpriteSurface miniSpriteSurface;
-MyComponent myComponent;
 
 MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
-...
+    ...
     
     // Don't delete Sprite Surface, will clean up Animate/Draw thread.
     MiniSpriteSurface miniSpriteSurface;
     
     // Store any reference to Transforms, MiniSprites, etc. you want to update later.
-    MiniSprite wave;
+    MiniSprite myComponent;
     
     ...
     
@@ -53,7 +51,7 @@ MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
         ...
     }
     
-    // I like instantiating in onPreUpdate to set size with the canvas scale
+    // I like instantiating in onPreUpdate to set size relative to canvas scale
     boolean created = false
     @Override
     public void onPreUpdate(MiniSpriteSurface miniSpriteSurface, Canvas canvas) {
@@ -103,8 +101,7 @@ MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
     @Override
     public void onPostDrawSprites(MiniSpriteSurface miniSpriteSurface, Canvas canvas) {
         ...
-        Update any stored components. 
-        myComponent.myValue = newValue;
+        myComponent.myValue = newValue; // Update any stored components. 
         ...
     }
 
