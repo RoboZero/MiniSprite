@@ -18,6 +18,8 @@ public class Transform2D {
     public Transform2D Parent;
     public int PositionX;
     public int PositionY;
+    public int AnchorOffsetX;
+    public int AnchorOffsetY;
     public int Width;
     public int Height;
     public float RotationAngleDegrees;
@@ -31,6 +33,8 @@ public class Transform2D {
         Parent = builder.parent;
         PositionX = builder.positionX;
         PositionY = builder.positionY;
+        AnchorOffsetX = builder.anchorOffsetX;
+        AnchorOffsetY = builder.anchorOffsetY;
         Width = builder.width;
         Height = builder.height;
         RotationAngleDegrees = builder.rotationAngleDegrees;
@@ -47,6 +51,8 @@ public class Transform2D {
         Parent = another.Parent;
         PositionX = another.PositionX;
         PositionY = another.PositionY;
+        AnchorOffsetX = another.AnchorOffsetX;
+        AnchorOffsetY = another.AnchorOffsetY;
         Width = another.Width;
         Height = another.Height;
         RotationAngleDegrees = another.RotationAngleDegrees;
@@ -67,6 +73,8 @@ public class Transform2D {
         private Transform2D parent;
         private int positionX;
         private int positionY;
+        private int anchorOffsetX;
+        private int anchorOffsetY;
         private int width;
         private int height;
         private float rotationAngleDegrees;
@@ -99,6 +107,19 @@ public class Transform2D {
         public T withPositionXY(int x, int y){
             this.positionX = x;
             this.positionY = y;
+            return (T) this;
+        }
+
+        /**
+         * After moved to position and rotated around center, apply position offset to transform
+         * Useful if wanting to rotate around an axis other than the center.
+         * @param x After position and rotation applied, pixels to move left or right. Recommended to be relative to width.
+         * @param y After position and rotation applied, pixels to move up or down. Recommended to be relative to height.
+         * @return
+         */
+        public T withAnchorOffsetXY(int x, int y){
+            this.anchorOffsetX = x;
+            this.anchorOffsetY = y;
             return (T) this;
         }
 
@@ -196,6 +217,7 @@ public class Transform2D {
         // TODO: Consider and resize with parent scale
         canvas.translate(PositionX, PositionY);
         canvas.rotate(RotationAngleDegrees);
+        canvas.translate(AnchorOffsetX, AnchorOffsetY);
 
         PackageUtilities.logContinuous("Drawing transform: " + Name);
         relativeDraw(canvas);
