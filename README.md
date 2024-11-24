@@ -66,7 +66,9 @@ MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
                              .withName("My Name") // Name for logging
                              .withDimensions(myWidth, myHeight) //  Width and Height of sprite
                              .withPaint(myPaint) // Sprite can use a paint
-                             .withPositionXY(myXPosition, myYPosition) // Position either in world or local space depending on parent. 
+                             .withPositionXY(myXPosition, myYPosition) // Position either in world or local space depending on parent.
+                             .withRotationAngleDegrees(degrees0to360) // Rotation around center point of transform
+                             .withAnchorOffsetXY(myXAnchorOffset, myYAnchorOffset) // After position and rotation set around center, translate (rotate around different axis)
                              .withComponent(myComponent) // Components to be updated by MiniSpriteSurface
                              .withParent(myParentTransform) // Follow transform position and rotation, position now in local space
                              .withSliceDimensions(2, 2) // Indicates my_drawable is a 2x2 spritesheet. Can set Slice Index to show correct sprite. 
@@ -76,7 +78,7 @@ MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
     
         Transform2D titleLeft = new MiniText.Builder() // Can create text that can use same transform parents and components. No UI anchoring yet. 
                     .withName("Title")
-                    .withTextValue("My Titel")
+                    .withTextValue("My Title")
                     .withPaint(titleTextPaint)
                     .withPositionXY(myXPosition, myYPosition)
                     .withParent(myParentTransform)
@@ -84,7 +86,7 @@ MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
     
         miniSpriteSurface.AllTransforms.instantiateTransform(
                     titleRight,
-                    4
+                    mySortingLayerInt // Value to set order of when transform is drawn. Anything drawn before (lower value layer) will be covered by anything drawn after (higher value layer)
             );
     
         created = true;
@@ -94,6 +96,7 @@ MyActivity extends AppCompatActivity implements IMiniSpriteSurfaceListener {
     @Override
     public void onPreDrawSprites(MiniSpriteSurface miniSpriteSurface, Canvas canvas) {
         ...
+        canvas.drawColor(getResources().getColor(R.color.black)); // Optionally clear canvas of previously drawn sprites. 
         ...
     }
     
