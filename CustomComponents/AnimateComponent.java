@@ -1,11 +1,11 @@
-package RoboZero.MiniSprite.CustomComponents;
+package MiniSprite.CustomComponents;
 
 import android.graphics.Canvas;
 
-import RoboZero.MiniSprite.Component;
-import RoboZero.MiniSprite.CustomTransforms.MiniSprite;
-import RoboZero.MiniSprite.MiniSpriteSurface;
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Component;
+import MiniSprite.CustomTransforms.MiniSprite;
+import MiniSprite.MiniSpriteSurface;
+import MiniSprite.Transform2D;
 
 public class AnimateComponent extends Component {
     private float timeUntilNextFrame = 0;

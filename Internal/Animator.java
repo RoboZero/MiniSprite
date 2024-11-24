@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite.Internal;
+package MiniSprite.Internal;
 
 public class Animator extends Thread {
     private static final int SLEEP_TIME = 50;

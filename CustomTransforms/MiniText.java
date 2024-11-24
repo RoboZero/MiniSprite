@@ -1,11 +1,11 @@
-package RoboZero.MiniSprite.CustomTransforms;
+package MiniSprite.CustomTransforms;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import androidx.annotation.NonNull;
 
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Transform2D;
 
 /**
  * Wrap text within transform - allows tracking parent transform and adding components.

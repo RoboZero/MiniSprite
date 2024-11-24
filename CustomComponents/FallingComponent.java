@@ -1,12 +1,12 @@
-package RoboZero.MiniSprite.CustomComponents;
+package MiniSprite.CustomComponents;
 
 import android.graphics.Canvas;
 
 import java.util.function.Function;
 
-import RoboZero.MiniSprite.Component;
-import RoboZero.MiniSprite.MiniSpriteSurface;
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Component;
+import MiniSprite.MiniSpriteSurface;
+import MiniSprite.Transform2D;
 
 public class FallingComponent extends Component {
     Transform2D canvasTransform;

@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite.CustomComponents;
+package MiniSprite.CustomComponents;
 
 import android.graphics.Canvas;
 import android.util.Log;
@@ -6,10 +6,9 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-import RoboZero.MiniSprite.Component;
-import RoboZero.MiniSprite.CustomTransforms.MiniSprite;
-import RoboZero.MiniSprite.MiniSpriteSurface;
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Component;
+import MiniSprite.MiniSpriteSurface;
+import MiniSprite.Transform2D;
 
 public class WaveComponent extends Component {
     public int WaveAmplitude;

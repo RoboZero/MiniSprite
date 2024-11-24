@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite;
+package MiniSprite;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -6,7 +6,7 @@ import android.graphics.Rect;
 
 import java.util.ArrayList;
 
-import RoboZero.MiniSprite.Internal.PackageUtilities;
+import MiniSprite.Internal.PackageUtilities;
 
 /**
  * A Transform is a name for anything with a position and orientation in space (you transform it's position)

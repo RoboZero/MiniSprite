@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite.CustomTransforms;
+package MiniSprite.CustomTransforms;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -7,8 +7,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import RoboZero.MiniSprite.Internal.PackageUtilities;
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Internal.PackageUtilities;
+import MiniSprite.Transform2D;
 
 /**
  * Draw sprite with drawable.

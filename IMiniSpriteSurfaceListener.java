@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite;
+package MiniSprite;
 
 import android.graphics.Canvas;
 

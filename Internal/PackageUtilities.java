@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite.Internal;
+package MiniSprite.Internal;
 
 import android.graphics.Paint;
 import android.util.Log;

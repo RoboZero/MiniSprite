@@ -1,11 +1,11 @@
-package RoboZero.MiniSprite.CustomComponents;
+package MiniSprite.CustomComponents;
 
 import android.graphics.Canvas;
 import android.util.Log;
 
-import RoboZero.MiniSprite.Component;
-import RoboZero.MiniSprite.MiniSpriteSurface;
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Component;
+import MiniSprite.MiniSpriteSurface;
+import MiniSprite.Transform2D;
 
 public class WaveFollowerComponent extends Component {
     private static final double TAU = 2 * Math.PI;

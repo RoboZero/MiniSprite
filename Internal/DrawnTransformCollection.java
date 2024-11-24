@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite.Internal;
+package MiniSprite.Internal;
 
 import android.util.Pair;
 
@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.Queue;
 import java.util.TreeMap;
 
-import RoboZero.MiniSprite.Transform2D;
+import MiniSprite.Transform2D;
 
 /**
  * MiniSpriteSurface will iterate and draw transforms in this collection.

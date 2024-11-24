@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite.Internal;
+package MiniSprite.Internal;
 
 public interface IDrawable {
     void draw();

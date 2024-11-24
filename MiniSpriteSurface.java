@@ -1,4 +1,4 @@
-package RoboZero.MiniSprite;
+package MiniSprite;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import RoboZero.MiniSprite.Internal.Animator;
-import RoboZero.MiniSprite.Internal.DrawnTransformCollection;
-import RoboZero.MiniSprite.Internal.IDrawable;
-import RoboZero.MiniSprite.Internal.PackageUtilities;
+import MiniSprite.Internal.Animator;
+import MiniSprite.Internal.DrawnTransformCollection;
+import MiniSprite.Internal.IDrawable;
+import MiniSprite.Internal.PackageUtilities;
 
 /**
  * The core of MiniSprite
